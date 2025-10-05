@@ -1,0 +1,46 @@
+/* Fullscreen canvas, minimal UI */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: radial-gradient(1200px 800px at 50% 40%, #0a0f2c 0%, #050714 60%, #02030b 100%);
+  color: #e6e9f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+canvas { display: block; }
+
+/* Soft vignette to frame the scene on large displays */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(70% 60% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.5) 100%),
+    radial-gradient(1200px 800px at 50% 40%, rgba(255,255,255,0.03), rgba(0,0,0,0) 60%, rgba(0,0,0,0.35) 100%);
+  mix-blend-mode: normal;
+}
+
+/* Info panel for selected planets */
+.planet-info {
+  width: 240px;
+  padding: 16px;
+  background: rgba(10, 15, 44, 0.7);
+  border: 1px solid rgba(120, 150, 255, 0.25);
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+  color: #c8d4e8;
+  font-size: 14px;
+  line-height: 1.5;
+  /* transform: translate3d(0,0,0) !important; <-- REMOVED */
+}
+.planet-info h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #e6e9f0;
+  border-bottom: 1px solid rgba(120, 150, 255, 0.2);
+  padding-bottom: 8px;
+}
+.planet-info p {
+  margin: 0;
+}
